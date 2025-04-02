@@ -53,6 +53,36 @@ app.post('/register', async (req, res) => {
   }
 });
 
+// Login Endpoint
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  // Validate input
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email and password are required' });
+  }
+
+  try {
+    // Check if the user exists
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Compare the provided password with the stored hashed password
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    // Respond with success if authentication is successful
+    res.status(200).json({ message: 'Login successful', user: { username: user.username, email: user.email } });
+  } catch (error) {
+    console.error('Error during login:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Endpoint to serve the homepage
 app.get('/', (req, res) => {
   res.sendFile(resolve(__dirname, 'pages/index.html'));

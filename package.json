@@ -11,5 +11,21 @@
     "express": "^4.21.2",
     "mongoose": "^8.13.1",
     "nodemon": "^3.1.9"
-  }
+  },
+  "version": "1.0.0",
+  "description": "Imagine you are developing an online marketplace where buyers and sellers need to create an account to participate. The platform requires new users to register by providing their username, email, and password. To ensure security, the password must be hashed before storing it in the database.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahilmithranks/Adding-and-validating-users-in-DB-via-bruno---Practice-assignment-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mahilmithranks/Adding-and-validating-users-in-DB-via-bruno---Practice-assignment-1/issues"
+  },
+  "homepage": "https://github.com/mahilmithranks/Adding-and-validating-users-in-DB-via-bruno---Practice-assignment-1#readme"
 }
